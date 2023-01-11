@@ -19,6 +19,7 @@ driver = webdriver.Chrome()
 
 driver.get("https://www.lighthouselabs.ca/")
 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//a[@title='Courses']")))
+# EC.text_to_be_present_in_element((By.XPATH, "//a[@title='Courses']"), "Courses")
 myElement = driver.find_element(By.XPATH, "//a[@title='Courses']")
 myElement.click()
 
