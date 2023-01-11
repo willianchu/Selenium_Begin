@@ -15,5 +15,6 @@ driver.get("https://www.dofactory.com/html/button/id#:~:text=The%20id%20attribut
 driver.implicitly_wait(30)
 myElement = driver.find_element(By.ID, "alert-button")
 myElement.click()
+myElement = driver.find_element(By.ID, "random")
 time.sleep(5)
 
