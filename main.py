@@ -10,12 +10,15 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 os.environ['PATH'] += ':/usr/local/bin'
 driver = webdriver.Chrome()
 
 driver.get("https://www.lighthouselabs.ca/")
-driver.implicitly_wait(30)
+WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//a[@title='Courses']")))
 myElement = driver.find_element(By.XPATH, "//a[@title='Courses']")
 myElement.click()
 
