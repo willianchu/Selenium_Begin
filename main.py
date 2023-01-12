@@ -11,8 +11,10 @@
 import os
 import time
 from selenium import webdriver
+
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -20,6 +22,7 @@ from selenium.webdriver.support import expected_conditions as EC
 os.environ['PATH'] += ':/usr/local/bin'
 driver = webdriver.Chrome()
 
+# thi code has a explicit wait and fill the form
 driver.get("https://www.seleniumeasy.com/python/locating-elements-in-selenium-python")
 nameID = driver.find_element(By.ID, "edit-name")
 nameID.send_keys("Joel Campbell")
@@ -29,7 +32,7 @@ time.sleep(5)
 
 
 
-
+# This code is for the implicit wait
 # driver.get("lighthouselabs.ca")
 # WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//a[@title='Courses']")))
 # # EC.text_to_be_present_in_element((By.XPATH, "//a[@title='Courses']"), "Courses")
