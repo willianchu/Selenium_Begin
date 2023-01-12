@@ -1,3 +1,4 @@
-from booking.constants import a
+from booking_package.booking import Booking
 
-print(a)
+inst = Booking()
+inst.land_first_page()

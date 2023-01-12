@@ -1,0 +1,12 @@
+// this setup will add an import statement for undefined variables
+
+"my-code-actions.actions": {
+  "[python]": {
+    "import {{diag:$1}}": {
+      "diagnostics": ["\"(.*?)\" is not defined"],
+      "text": "import {{diag:$1}}\n",
+      "where": "afterLast",
+      "insertFind": "^(import |from \\w+ import )"
+    }
+  }
+}
