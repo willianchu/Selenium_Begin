@@ -1,6 +1,7 @@
 import booking_package.constants as const
 import os
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 
 class Booking(webdriver.Chrome):
@@ -18,3 +19,9 @@ class Booking(webdriver.Chrome):
 
   def land_first_page(self):
     self.get(const.BASE_URL)
+
+  def change_currency(self, currency='USD'):
+    currency_element = self.find_element(By.XPATH,
+    '//button[@data-testid="header-currency-picker-trigger"]')	
+    print(currency_element.text)
+    currency_element.click()
