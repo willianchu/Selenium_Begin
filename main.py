@@ -5,6 +5,9 @@
 
 # Syntax WebElement elm = driver. findElement (By.className ("input__input")); WebElement p = driver.findElement (By.xpath ("//input [@class = ' input__input']")); WebElement t = driver. findElement (By.cssSelector ("input [class=' input__input']"));
 
+# implicit is a global wait for all elements
+# explicit is a wait for a specific element
+
 import os
 import time
 from selenium import webdriver
