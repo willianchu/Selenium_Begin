@@ -20,8 +20,11 @@ class Booking(webdriver.Chrome):
   def land_first_page(self):
     self.get(const.BASE_URL)
 
-  def change_currency(self, currency='USD'):
+  def change_currency(self, currency=None):
     currency_element = self.find_element(By.XPATH,
     '//button[@data-testid="header-currency-picker-trigger"]')	
-    print(currency_element.text)
     currency_element.click()
+    print(currency_element.text)
+    selected_currency_element = self.find_element(By.XPATH,
+    f'//a[@data-modal-header-async-url-param="selected_currency*="selected_currency={currency}"]')
+    selected_currency_element.click()
