@@ -24,7 +24,9 @@ class Booking(webdriver.Chrome):
     currency_element = self.find_element(By.XPATH,
     '//button[@data-testid="header-currency-picker-trigger"]')	
     currency_element.click()
-    print(currency_element.text)
+    print(f'First Clicked Element: {currency_element.text}')
+    self.implicitly_wait(15)
     selected_currency_element = self.find_element(By.XPATH,
-    f'//a[@data-modal-header-async-url-param="selected_currency*="selected_currency={currency}"]')
-    selected_currency_element.click()
+    f'//a[@data-modal-header-async-url-param*="changed_currency=1&amp;selected_currency={currency}"]')
+    # selected_currency_element.click()
+    print(f'Second Clicked Element: {selected_currency_element.text}')
