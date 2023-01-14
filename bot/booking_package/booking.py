@@ -24,7 +24,7 @@ class Booking(webdriver.Chrome):
 
   def change_currency(self, currency=None):
     CurrencyMenuElementPath = '//button[@data-testid="header-currency-picker-trigger"]'
-    # WebDriverWait(self, 10).until(EC.presence_of_element_located((By.XPATH, CurrencyMenuElementPath))) # it does not make difference
+    WebDriverWait(self, 10).until(EC.presence_of_element_located((By.XPATH, CurrencyMenuElementPath))) # /when the page is not in cache always not found element
     currency_element = self.find_element(By.XPATH, CurrencyMenuElementPath)	
     currency_element.click()
     print(f'First Clicked Element: {currency_element.text}')
