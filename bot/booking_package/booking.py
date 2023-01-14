@@ -23,14 +23,14 @@ class Booking(webdriver.Chrome):
     self.get(const.BASE_URL)
 
   def change_currency(self, currency=None):
-    self(10).until(EC.presence_of_element_located((By.XPATH, '//button[@data-testid="header-currency-picker-trigger"]')))
+    WebDriverWait(self, 10).until(EC.presence_of_element_located((By.XPATH, '//button[@data-testid="header-currency-picker-trigger"]')))
 
     currency_element = self.find_element(By.XPATH,
     '//button[@data-testid="header-currency-picker-trigger"]')	
     currency_element.click()
     print(f'First Clicked Element: {currency_element.text}')
    
-    self(10).until(EC.presence_of_element_located((By.XPATH, f'//*[text()="{currency}"]'))
+    WebDriverWait(self, 10).until(EC.presence_of_element_located((By.XPATH, f'//*[text()="{currency}"]')))
     selected_currency_element = self.find_element(By.XPATH,
     f'//*[text()="{currency}"]')
     # selected_currency_element.click()
