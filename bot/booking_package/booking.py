@@ -24,16 +24,14 @@ class Booking(webdriver.Chrome):
 
   def change_currency(self, currency=None):
     CurrencyMenuElementPath = '//button[@data-testid="header-currency-picker-trigger"]'
-    WebDriverWait(self, 10).until(EC.presence_of_element_located((By.XPATH, CurrencyMenuElementPath)))]')))
-    currency_element = self.find_element(By.XPATH,
-    CurrencyMenuElementPath]')	
+    # WebDriverWait(self, 10).until(EC.presence_of_element_located((By.XPATH, CurrencyMenuElementPath))) # it does not make difference
+    currency_element = self.find_element(By.XPATH, CurrencyMenuElementPath)	
     currency_element.click()
     print(f'First Clicked Element: {currency_element.text}')
   
     CurrencySelectedElementPath = f'//*[text()="{currency}"]'
-    WebDriverWait(self, 10).until(EC.presence_of_element_located((By.XPATH, CurrencySelectedElementPath)))
-    selected_currency_element = self.find_element(By.XPATH,
-    CurrencySelectedElementPath)
+    WebDriverWait(self, 10).until(EC.presence_of_element_located((By.XPATH, CurrencySelectedElementPath))) # it avoids the error to find the previous element
+    selected_currency_element = self.find_element(By.XPATH, CurrencySelectedElementPath)
     # selected_currency_element.click()
     print(f'Second Clicked Element: {selected_currency_element.text}')
    
