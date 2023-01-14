@@ -2,6 +2,8 @@ import booking_package.constants as const
 import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class Booking(webdriver.Chrome):
@@ -21,14 +23,16 @@ class Booking(webdriver.Chrome):
     self.get(const.BASE_URL)
 
   def change_currency(self, currency=None):
+    self(10).until(EC.presence_of_element_located((By.XPATH, '//button[@data-testid="header-currency-picker-trigger"]')))
+
     currency_element = self.find_element(By.XPATH,
     '//button[@data-testid="header-currency-picker-trigger"]')	
     currency_element.click()
     print(f'First Clicked Element: {currency_element.text}')
-
-    self.implicitly_wait(15)
-    
+   
+    self(10).until(EC.presence_of_element_located((By.XPATH, f'//*[text()="{currency}"]'))
     selected_currency_element = self.find_element(By.XPATH,
     f'//*[text()="{currency}"]')
     # selected_currency_element.click()
     print(f'Second Clicked Element: {selected_currency_element.text}')
+   
