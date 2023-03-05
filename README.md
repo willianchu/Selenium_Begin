@@ -30,6 +30,26 @@ as each computer has a different version of chrome and path you need to import i
 import os
 os.environ["PATH"] += r"/Users/username/SeleniumDrivers/chromedriver_win32/chromedriver.exe"
 ```
+## Organization of folders and files
+
+Bot (folder) - main folder
+- booking_package (folder) - package
+  __pychache__ (folder) - cache for python
+  __init__.py (file) - file to initialize the package
+  booking.py (file) - file to run the code
+  constants.py (file) - file to store constants
+- start.py (file) - main file to run the code
+selenium (folder)
+main.py (file) - main file to run the code
+
+## How to run the code
+
+- Open the terminal
+- Go to the folder where the code is located
+- Run the code
+```python
+python start.py
+```
 
 
 The minimum setup it will look like this:
@@ -75,12 +95,32 @@ print(f"{progress_element.text == 'Completed!'}") # print the text of the elemen
 # Filling Forms Automation
 
 ```python
+# automate some keys (F12) to inspect the element
+from selenium.webdriver.common.keys import Keys
+
 driver.get("https://www.seleniumeasy.com/test/basic-first-form-demo.html") # get the url
 
+driver.implicitly_wait(30) # wait for 10 seconds to make sure the page loads - this not wait 30 seconds - time.sleep(30) // wait for 30 seconds
+try:
+  no_button = driver.find_element_by_class_name("at-cm-no-button") # find the element by class name
+  no_button.click() # click the element closes de Advertising
+except:
+  print("No Advertising, skip this step")
 
+sum1 = driver.find_element_by_id("sum1") # find the element by id
+
+sum2 = driver.find_element_by_id("sum2") # find the element by id
+
+sum1.send_keys(Keys.NUMPAD1, Keys.NUMPAD5) # send keys to the element
+sum2.send_keys("20") # send keys to the element
+
+btn = driver.find_element_by_css_selector('button[onclick="return total()"]') # find the element by css selector
+
+btn.click() # click the element
 ```
+Link to CSS Selectors https://www.w3schools.com/cssref/css_selectors.asp
 
-```python
+
 
 
 
