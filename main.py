@@ -25,10 +25,12 @@ driver = webdriver.Chrome()
 # thi code has a explicit wait and fill the form
 driver.get("https://www.seleniumeasy.com/python/locating-elements-in-selenium-python")
 nameID = driver.find_element(By.ID, "edit-name")
-nameID.send_keys("Joel Campbell")
+nameID.send_keys("John Bot")
+subjectID = driver.find_element(By.ID, "edit-subject")
+subjectID.send_keys("Bot Subject")
 commentID = driver.find_element(By.ID, "edit-comment-body-und-0-value")
-commentID.send_keys("This is a comment super cool made by Joel Campbell Bot")
-time.sleep(5)
+commentID.send_keys("This is a comment super cool made by John Bot")
+time.sleep(50)
 
 
 
