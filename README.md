@@ -43,12 +43,11 @@ selenium (folder)
 main.py (file) - main file to run the code
 
 ## How to run the code
-
 - Open the terminal
 - Go to the folder where the code is located
 - Run the code
 ```python
-python start.py
+python main.py
 ```
 
 
